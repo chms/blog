@@ -30,3 +30,11 @@ import/
 
 # Cloudflare Wrangler local state
 .wrangler/
+
+# Other environment files and Cloudflare's local secrets
+.env.*
+!.env.example
+.dev.vars*
+
+# Logs
+*.log
