@@ -21,10 +21,10 @@
 :root[data-theme='dark'] {
 	--accent: #d9575c;
 	--accent-dark: #ea8a8e;
-	--black: #f2f2f2;
-	--gray: #9c9c9c;
+	--black: #e8e8e8;
+	--gray: #959595;
 	--gray-light: #303030;
-	--gray-dark: #d2d2d2;
+	--gray-dark: #c9c9c9;
 	--bg: #1b1b1b;
 	--box-shadow: 0 2px 6px #00000066, 0 8px 24px #00000066;
 	--gray-gradient: #30303080, var(--bg);
