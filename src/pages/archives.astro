@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/BlogPost.astro';
+import { tagSlug, tagUrl } from '../lib/tags';
+
+const posts = await getCollection('blog');
+const counts = new Map<string, { name: string; count: number }>();
+for (const post of posts) {
+	for (const tag of post.data.tags) {
+		const entry = counts.get(tagSlug(tag)) ?? { name: tag, count: 0 };
+		entry.count++;
+		counts.set(tagSlug(tag), entry);
+	}
+}
+const tags = [...counts.values()].sort((a, b) =>
+	a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }),
+);
+
+const byYear = new Map<number, typeof posts>();
+for (const post of [...posts].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())) {
+	const year = post.data.pubDate.getFullYear();
+	byYear.set(year, [...(byYear.get(year) ?? []), post]);
+}
+const years = [...byYear];
+const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', day: 'numeric' });
+---
+
+<Layout title="Archives" description="Search and all posts, by tag and by year.">
+	<h2>Search</h2>
+	<p>Coming soon.</p>
+
+	<h2>Archives by Tags</h2>
+	<ul class="tags">
+		{
+			tags.map(({ name, count }) => (
+				<li>
+					<a href={tagUrl(name)}>{name}</a> <span class="count">({count})</span>
+				</li>
+			))
+		}
+	</ul>
+
+	<h2>Archives by Year</h2>
+	{
+		years.map(([year, yearPosts], i) => (
+			<details open={i === 0}>
+				<summary>
+					{year} <span class="count">({yearPosts.length})</span>
+				</summary>
+				<ul class="posts">
+					{yearPosts.map((post) => (
+						<li>
+							<time datetime={post.data.pubDate.toISOString()}>{day(post.data.pubDate)}</time>
+							<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+						</li>
+					))}
+				</ul>
+			</details>
+		))
+	}
+</Layout>
+<style>
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3em 1.4em;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.count {
+		color: rgb(var(--gray));
+	}
+	summary {
+		margin-top: 0.8em;
+		font-family: var(--font-jost);
+		font-weight: 500;
+		cursor: pointer;
+	}
+	summary:hover {
+		color: var(--accent);
+	}
+	.posts {
+		margin: 0.3em 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.posts li {
+		display: flex;
+		gap: 1em;
+	}
+	.posts time {
+		flex: 0 0 3.5em;
+		color: rgb(var(--gray));
+	}
+</style>

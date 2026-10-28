@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import TagList from '../../components/TagList.astro';
+import Layout from '../../layouts/BlogPost.astro';
+import { tagSlug } from '../../lib/tags';
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	const tags = new Map<string, string>();
+	for (const post of posts) {
+		for (const tag of post.data.tags) {
+			if (!tags.has(tagSlug(tag))) tags.set(tagSlug(tag), tag);
+		}
+	}
+	return [...tags].map(([slug, name]) => ({
+		params: { tag: slug },
+		props: {
+			name,
+			posts: posts.filter((post) => post.data.tags.some((tag) => tagSlug(tag) === slug)),
+		},
+	}));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<Layout title={name} description={`Posts tagged ${name}`}>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+					<p class="meta">
+						<FormattedDate date={post.data.pubDate} />
+						{post.data.tags.length > 0 && ' · '}
+						<TagList tags={post.data.tags} />
+					</p>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
+<style>
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		margin-bottom: 1.5em;
+	}
+	li > a {
+		font-family: var(--font-jost);
+		font-weight: 500;
+		font-size: 1.4em;
+		color: rgb(var(--black));
+		text-decoration: none;
+	}
+	li > a:hover {
+		color: var(--accent);
+	}
+	.meta {
+		margin: 0;
+		font-style: italic;
+		color: rgb(var(--gray));
+	}
+</style>

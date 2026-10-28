@@ -1,0 +1,27 @@
+---
+import { tagUrl } from '../lib/tags';
+
+interface Props {
+	tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{
+	tags.map((tag, i) => (
+		<>
+			{i > 0 && ', '}
+			<a href={tagUrl(tag)}>{tag}</a>
+		</>
+	))
+}
+<style>
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+	a:hover {
+		color: var(--accent);
+	}
+</style>

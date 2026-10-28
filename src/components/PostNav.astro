@@ -1,0 +1,59 @@
+---
+interface Link {
+	title: string;
+	href: string;
+}
+
+interface Props {
+	prev?: Link;
+	next?: Link;
+}
+
+const { prev, next } = Astro.props;
+---
+
+{
+	(prev || next) && (
+		<nav class="post-nav" aria-label="Previous and next post">
+			{
+				prev && (
+					<a class="prev" href={prev.href} rel="prev">
+						<span aria-hidden="true">←</span> {prev.title}
+					</a>
+				)
+			}
+			{
+				next && (
+					<a class="next" href={next.href} rel="next">
+						{next.title} <span aria-hidden="true">→</span>
+					</a>
+				)
+			}
+		</nav>
+	)
+}
+<style>
+	.post-nav {
+		display: flex;
+		justify-content: space-between;
+		gap: 2em;
+		width: 1000px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+		padding: 0 1em;
+		box-sizing: content-box;
+		font-size: 0.9em;
+		font-family: var(--font-jost);
+		font-weight: 500;
+	}
+	.post-nav a {
+		text-decoration: none;
+	}
+	.post-nav a:hover {
+		color: var(--accent-dark);
+	}
+	.next {
+		margin-left: auto;
+		text-align: right;
+	}
+</style>

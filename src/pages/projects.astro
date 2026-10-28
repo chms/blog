@@ -1,0 +1,11 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/BlogPost.astro';
+
+const projects = (await getEntry('pages', 'projects'))!;
+const { Content } = await render(projects);
+---
+
+<Layout {...projects.data}>
+	<Content />
+</Layout>

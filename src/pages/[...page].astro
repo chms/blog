@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Post from '../components/Post.astro';
+import PostNav from '../components/PostNav.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Page from '../layouts/Page.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const entries = await Promise.all(
+	page.data.map(async (post) => ({ post, Content: (await render(post)).Content })),
+);
+const link = (title: string, url?: string) => url && { title, href: url.endsWith('/') ? url : `${url}/` };
+const older = link('Older posts', page.url.next);
+const newer = link('Newer posts', page.url.prev);
+---
+
+<Page title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	{
+		entries.map(({ post, Content }) => (
+			<Post {...post.data} href={`/blog/${post.id}/`}>
+				<Content />
+			</Post>
+		))
+	}
+	<PostNav prev={older} next={newer} />
+</Page>

@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const pages = await getCollection('pages');
+	return pages
+		.filter((page) => page.id.startsWith('projects/'))
+		.map((page) => ({ params: { slug: page.id.replace(/^projects\//, '') }, props: page }));
+}
+
+const page = Astro.props;
+const { Content } = await render(page);
+---
+
+<Layout {...page.data}>
+	<Content />
+</Layout>

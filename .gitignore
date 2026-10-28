@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Instructions for Claude
+Claude.md
+# WordPress export and other private import material
+import/
