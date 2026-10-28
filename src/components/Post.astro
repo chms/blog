@@ -15,7 +15,7 @@ const { title, pubDate, updatedDate, tags = [], href } = Astro.props;
 const Heading = href ? 'h2' : 'h1';
 ---
 
-<article>
+<article data-pagefind-body={pubDate && !href ? '' : undefined}>
 	<div class="prose">
 		<div class="title">
 			<Heading class="heading">
