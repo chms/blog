@@ -20,6 +20,17 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
+<script is:inline>
+	// Runs before the page is drawn, so there is no flash of the wrong theme.
+	(() => {
+		let saved = null;
+		try {
+			saved = localStorage.getItem('theme');
+		} catch {}
+		const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+	})();
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 <link rel="icon" href="/favicon.ico" sizes="48x48" />

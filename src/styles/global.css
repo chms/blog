@@ -7,14 +7,28 @@
 :root {
 	--accent: #ae3136;
 	--accent-dark: #7a2125;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--black: #0f1219;
+	--gray: #60739f;
+	--gray-light: #e5e9f0;
+	--gray-dark: #222939;
+	--bg: #fff;
+	--gray-gradient: #e5e9f080, var(--bg);
+	color-scheme: light;
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+		0 2px 6px #60739f40, 0 8px 24px #60739f55, 0 16px 32px #60739f55;
+}
+/* The theme is set on <html> by the script in BaseHead, from the saved choice or the system setting. */
+:root[data-theme='dark'] {
+	--accent: #d9575c;
+	--accent-dark: #ea8a8e;
+	--black: #f2f2f2;
+	--gray: #9c9c9c;
+	--gray-light: #303030;
+	--gray-dark: #d2d2d2;
+	--bg: #1b1b1b;
+	--box-shadow: 0 2px 6px #00000066, 0 8px 24px #00000066;
+	--gray-gradient: #30303080, var(--bg);
+	color-scheme: dark;
 }
 html {
 	/* fallback until the header script has measured the header */
@@ -25,11 +39,11 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background: linear-gradient(var(--gray-gradient)) no-repeat var(--bg);
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--gray-dark);
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -46,7 +60,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--black);
 	font-family: var(--font-jost);
 	font-weight: 500;
 	line-height: 1.2;
@@ -107,7 +121,7 @@ pre {
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: var(--gray-light);
 	border-radius: 2px;
 }
 pre {
@@ -124,7 +138,7 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--gray-light);
 }
 @media (max-width: 720px) {
 	body {

@@ -16,9 +16,44 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/projects">Projects</HeaderLink>
 			<HeaderLink href="/archives">Archives</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+				<svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M20 14.5A8 8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
+				</svg>
+				<svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+					<circle cx="12" cy="12" r="4.2" />
+					<path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" />
+				</svg>
+			</button>
 		</div>
 	</nav>
 </header>
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+	const root = document.documentElement;
+	const label = () => {
+		const text = root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+		toggle?.setAttribute('aria-label', text);
+		toggle?.setAttribute('title', text);
+	};
+	label();
+	toggle?.addEventListener('click', () => {
+		const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+		root.dataset.theme = next;
+		try {
+			localStorage.setItem('theme', next);
+		} catch {}
+		label();
+	});
+	// Without a saved choice the site follows the system setting.
+	matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+		try {
+			if (localStorage.getItem('theme')) return;
+		} catch {}
+		root.dataset.theme = event.matches ? 'dark' : 'light';
+		label();
+	});
+</script>
 <script>
 	// The header stays on screen, so anchor links must stop below it (its height changes with the layout).
 	const header = document.querySelector('header');
@@ -37,8 +72,8 @@ import HeaderLink from './HeaderLink.astro';
 		z-index: 10;
 		margin: 0;
 		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: var(--bg);
+		box-shadow: 0 2px 8px #0f12190d;
 	}
 	h2 {
 		margin: 0;
@@ -63,7 +98,7 @@ import HeaderLink from './HeaderLink.astro';
 		font-style: italic;
 		font-weight: 400;
 		font-size: 0.9em;
-		color: rgb(var(--gray));
+		color: var(--gray);
 	}
 	nav {
 		box-sizing: border-box;
@@ -101,9 +136,41 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 	}
+	.theme-toggle {
+		display: flex;
+		align-items: center;
+		padding: 1em 0.5em;
+		border: 0;
+		border-bottom: 4px solid transparent;
+		background: none;
+		color: var(--black);
+		cursor: pointer;
+	}
+	.theme-toggle:hover {
+		color: var(--accent);
+	}
+	.theme-toggle svg {
+		width: 1.8em;
+		height: 1.8em;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.8;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+	.theme-toggle .sun,
+	:global(:root[data-theme='dark']) .theme-toggle .moon {
+		display: none;
+	}
+	:global(:root[data-theme='dark']) .theme-toggle .sun {
+		display: block;
+	}
+	:global(:root[data-theme='dark']) header {
+		box-shadow: 0 2px 8px #00000066;
+	}
 	nav a {
 		padding: 1em 0.5em;
-		color: rgb(var(--black));
+		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
@@ -119,7 +186,8 @@ import HeaderLink from './HeaderLink.astro';
 		.brand {
 			padding-block: calc(0.425em + 0.05em) calc(0.425em - 0.05em);
 		}
-		.internal-links a {
+		.internal-links a,
+		.theme-toggle {
 			padding-block: calc(1em + 2.5px) calc(1em - 2.5px);
 		}
 	}

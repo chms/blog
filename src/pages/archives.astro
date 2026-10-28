@@ -108,11 +108,14 @@ const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', d
 	showYear(panels.some((panel) => panel.id === initial) ? initial : links[0]?.dataset.year);
 </script>
 <style>
+	:global(:root[data-theme='dark']) #search {
+		--field-border: var(--gray);
+	}
 	#search {
-		--pagefind-ui-primary: #ae3136;
-		--pagefind-ui-text: rgb(var(--gray-dark));
-		--pagefind-ui-background: white;
-		--pagefind-ui-border: rgb(var(--gray-light));
+		--pagefind-ui-primary: var(--accent);
+		--pagefind-ui-text: var(--gray-dark);
+		--pagefind-ui-background: var(--bg);
+		--pagefind-ui-border: var(--gray-light);
 		--pagefind-ui-font: var(--font-domitian), serif;
 	}
 	#search :global(.pagefind-ui),
@@ -134,9 +137,9 @@ const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', d
 		padding-block: 0.2em 0;
 		padding-inline: 2.4em 3em;
 		font-size: 0.9em;
-		border: 1.5px solid #8a8a8a;
+		border: 1.5px solid var(--field-border, #8a8a8a);
 		border-radius: 12px;
-		background-color: white;
+		background-color: var(--bg);
 		caret-color: var(--accent);
 		box-shadow: none;
 		transition: border-color 0.15s;
@@ -158,7 +161,7 @@ const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', d
 		font-size: 0.8em;
 		border: none;
 		background: transparent;
-		color: rgb(var(--gray));
+		color: var(--gray);
 	}
 	h2:not(:first-child) {
 		margin-top: 2em;
@@ -172,7 +175,7 @@ const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', d
 		list-style: none;
 	}
 	.count {
-		color: rgb(var(--gray));
+		color: var(--gray);
 	}
 	.years {
 		margin-bottom: 0.6em;
@@ -191,6 +194,6 @@ const day = (date: Date) => date.toLocaleDateString('en-us', { month: 'short', d
 	}
 	.posts time {
 		flex: 0 0 3.5em;
-		color: rgb(var(--gray));
+		color: var(--gray);
 	}
 </style>
