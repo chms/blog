@@ -23,6 +23,12 @@ const { title, description } = Astro.props;
 				padding-top: 0.5em;
 				padding-bottom: 1.5em;
 			}
+			@media (max-width: 720px) {
+				main {
+					width: calc(100% - 1em);
+					padding-inline: 0.5em;
+				}
+			}
 		</style>
 	</head>
 
