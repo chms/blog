@@ -27,3 +27,6 @@ pnpm-debug.log*
 Claude.md
 # WordPress export and other private import material
 import/
+
+# Cloudflare Wrangler local state
+.wrangler/

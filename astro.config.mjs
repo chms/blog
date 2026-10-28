@@ -7,7 +7,7 @@ import { satteri } from '@astrojs/markdown-satteri';
 import externalLinks from './src/plugins/external-links.mjs';
 import moreMarker from './src/plugins/more-marker.mjs';
 
-const site = 'https://example.com';
+const site = 'https://blog.chschmid.com';
 
 // https://astro.build/config
 export default defineConfig({
