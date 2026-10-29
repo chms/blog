@@ -52,6 +52,50 @@ const Heading = href ? 'h2' : 'h1';
 	</div>
 </article>
 <script>
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+	import 'photoswipe/dist/photoswipe.css';
+
+	// Images in the text of a post open full size on click. The images of one post form a gallery;
+	// images inside a link or marked with `data-no-zoom` are left alone. The viewer itself is only
+	// downloaded on the first click.
+	const zoomable = (img: HTMLImageElement) => !img.closest('a') && !img.hasAttribute('data-no-zoom');
+	document.addEventListener('click', (event) => {
+		const img = (event.target as Element).closest?.('.body img');
+		if (!(img instanceof HTMLImageElement) || !zoomable(img)) return;
+		const images = [...img.closest('.body')!.querySelectorAll('img')].filter(
+			(image) => zoomable(image) && image.offsetParent !== null,
+		);
+		const lightbox = new PhotoSwipeLightbox({
+			dataSource: images.map((image) => ({
+				src: image.currentSrc || image.src,
+				width: image.naturalWidth || Number(image.getAttribute('width')),
+				height: image.naturalHeight || Number(image.getAttribute('height')),
+				alt: image.alt,
+				element: image,
+			})),
+			pswpModule: () => import('photoswipe'),
+			bgOpacity: 0.92,
+			wheelToZoom: true,
+		});
+		lightbox.on('uiRegister', () => {
+			lightbox.pswp!.ui!.registerElement({
+				name: 'caption',
+				order: 9,
+				isButton: false,
+				appendTo: 'root',
+				onInit: (el, pswp) => {
+					pswp.on('change', () => {
+						el.textContent = pswp.currSlide?.data.alt ?? '';
+						el.hidden = !el.textContent;
+					});
+				},
+			});
+		});
+		lightbox.init();
+		lightbox.loadAndOpen(images.indexOf(img));
+	});
+</script>
+<script>
 	// E-mail addresses are only assembled in the browser, so scrapers reading the page source don't find them.
 	document.querySelectorAll<HTMLElement>('.email[data-user][data-domain]').forEach((el) => {
 		const address = `${el.dataset.user}@${el.dataset.domain}`;
@@ -175,6 +219,20 @@ const Heading = href ? 'h2' : 'h1';
 		.body :global(p:has(> :is(img, a:has(> img)) + :is(img, a:has(> img)))) {
 			flex-direction: column;
 		}
+	}
+	.body :global(img:not(a img):not([data-no-zoom])) {
+		cursor: zoom-in;
+	}
+	:global(.pswp__caption) {
+		position: absolute;
+		inset: auto 0 0;
+		padding: 0.6em 1em;
+		background: #000000a0;
+		color: #e8e8e8;
+		font-family: var(--font-domitian);
+		font-size: 0.9rem;
+		text-align: center;
+		pointer-events: none;
 	}
 	.body :global(.more-marker) {
 		display: none;
