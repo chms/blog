@@ -6,8 +6,6 @@ tags: ['Cheat Sheets']
 
 Git is a free, open-source distributed version control system designed to track changes in source code during software development.
 
-![git](./git-cheat-sheet/Git-Logo-2Color.svg)
-
 ### Setup
 
 ```bash
