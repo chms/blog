@@ -6,7 +6,7 @@ pubDate: 'Jan 08 2011'
 I use my [TI chronos watch](http://www.ti.com/chronos) to control my bedroom light. This post contains information on how the whole thing evolved and how it works. To get a rough idea about the project you might want to watch the short video below.
 
 <div class="video"><a class="yt-embed" href="https://www.youtube.com/watch?v=UGeru-bNizE" data-youtube="UGeru-bNizE" title="TI Chronos (MSP430) Controlling My Bedroom Light"><img src="/files/youtube/UGeru-bNizE.jpg" alt="Video: TI Chronos (MSP430) Controlling My Bedroom Light" loading="lazy" width="1280" height="720"><span class="yt-play"></span></a></div>
-
+<!--more-->
 ## Table of Contents
 
 [1\. Introduction](#1-introduction)  
