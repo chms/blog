@@ -11,3 +11,5 @@ Being creative is about building stuff and it's even more challenging and fun wh
 Working on the page was a real pleasure. Of course as an engineer I always have to think about the under the hood stuff, like Joomla which is behind the page and CSS and HTML and PHP. But what also counts, probably more than anything, is the design - the way the information is presented. There was a lot of trying different photos, styles, optimizing, font chosing (no we never considered Comic Sans), which is especially fun with an artist like Harald, because he simply cares. About details as well as about the big picture.
 
 Anyway if you like his music find out more at [www.haraldbaumgartner.com](http://www.haraldbaumgartner.com), or on his facebook page
+
+https://www.facebook.com/p/Hari-Viderci-100063506169544/

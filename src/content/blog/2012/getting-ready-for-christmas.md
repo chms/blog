@@ -10,6 +10,6 @@ Advent season has picked up full momentum already. The advent wreath and my new 
 
 And here's one of the tunes that I played. I recorded it with my cellphone mic:
 
-[Listen on SoundCloud: Es wird scho glei dumpa by chschmid](https://soundcloud.com/chschmid)
+[Listen on SoundCloud: Es wird scho glei dumpa by chschmid](https://soundcloud.com/chschmid/es-wird-scho-glei-dumpa)
 
 What do you do to get yourself into Christmas gear?

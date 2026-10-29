@@ -6,7 +6,7 @@ tags: ['30days', 'Music']
 
 Another [30 Days Challenge](/blog/try-something-new-for-30-days/)! I'll record small snippets of music / sound every day for 30 days and will upload them to soundcloud.
 
-[Listen on SoundCloud: 30 Sound Bites for 30 Days by chschmid](https://soundcloud.com/chschmid)
+[Listen on SoundCloud: 30 Sound Bites for 30 Days by chschmid](https://soundcloud.com/chschmid/sets/30-sound-bites-for-30-days)
 
 Some background information:
 
