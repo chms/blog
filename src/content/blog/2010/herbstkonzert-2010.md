@@ -11,6 +11,7 @@ It's a beloved tradition. Once every year we have our fall concert with the Trac
 led to the final event
 
 ![](./herbstkonzert-2010/06112010116.jpg "In the Middle")
+<!--more-->
 
 I couldn't resist the temptation to take some pics while the moderator was talking ;) The audience (some 300 people) seemed to like the concert
 
