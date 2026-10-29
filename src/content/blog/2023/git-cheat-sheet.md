@@ -45,6 +45,8 @@ git branch # Show branches
 git branch new-branch # Create branch
 git branch -m OLD_NAME NEW_NAME # Rename branch
 git checkout -b NAME # Create and switch branch
+git merge NAME # Merge NAME into current branch
+git branch -d NAME # Delete branch
 ```
 
 # LFS
