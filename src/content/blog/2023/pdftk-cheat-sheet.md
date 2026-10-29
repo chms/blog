@@ -28,7 +28,7 @@ pdftk foo-bar.pdf cat 1-12 output foo.pdf
 pdftk foo-bar.pdf cat 13-end output bar.pdf
 pdftk foobar.pdf burst output foobar-%d.pdf
 ```
-
+<!--more-->
 ### Split Even/Odd
 
 ```bash

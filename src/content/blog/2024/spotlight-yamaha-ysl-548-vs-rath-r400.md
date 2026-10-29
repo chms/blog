@@ -21,7 +21,7 @@ While I mostly focus on playing the piano these days, I would rate myself as sem
 After consulting with two friends, who are professional trombone players, I narrowed down my selection to 4 instruments: 2 refurbished trombones, the Yamaha YSL-548 and the Rath R400. Especially the latter two to me seemed proper competitors. Both are in a similar price range: 2000-2500 €. Both tick off requirements 1-3 from my list above. Both claim to be "step-up instruments", positioned between entry-level and full-custom / professional instruments.
 
 > From Yamaha's Website on the YSL-548: "... eventually a beginning student model horn will start to hold them back. Yamaha offers the perfect line of instruments to keep pace with their burgeoning musical growth…Allegro."
-> 
+
 > From Michael Rath's Website on the R400: "For those looking to progress from a beginner’s instrument to their first professional level trombone the R00 series of instruments is excellent in developing style and technique before progressing to a fully customized trombone."
 
 I got both horns, the Yamaha from a [local dealer](https://www.danner.at/) and the Rath from the [Thomann Online Music](https://www.thomann.de/) store. I liked the sound of both instruments. The ergonomics are good on both, with a slight advantage for the R400 because of its thumb rest. The YSL-548 wins the valve competition: smoother action.
@@ -50,15 +50,11 @@ To let you in on the side-by-side experience with the Yamaha YSL-548 here some c
 
 The difference was striking. You may argue: Well it's just cosmetics. But there some spots on the instrument where I am not even sure if there is sufficient solder material going all around the pipe connections. On the R400 there is a visible gap between the outer and inner pipe of some joints.
 
-![](./spotlight-yamaha-ysl-548-vs-rath-r400/valve-pipe-R400.jpg)
+![R400](./spotlight-yamaha-ysl-548-vs-rath-r400/valve-pipe-R400.jpg)
+![YSL-548](./spotlight-yamaha-ysl-548-vs-rath-r400/valve-pipe-YSL548.jpg)
 
-*R400*
 
-![](./spotlight-yamaha-ysl-548-vs-rath-r400/valve-pipe-YSL548.jpg)
-
-*YSL-548*
-
-By the way, those black dots on the kurled valve caps on the R400 really are under the lacquer. Which brings me to the next issue: the lacquer, there are at least two spots on the R400 that I had in my hands that looked like this.
+By the way, those black dots on the knurled valve caps on the R400 really are under the lacquer. Which brings me to the next issue: the lacquer, there are at least two spots on the R400 that I had in my hands that looked like this.
 
 ![](./spotlight-yamaha-ysl-548-vs-rath-r400/R400-lacquer.jpg)
 

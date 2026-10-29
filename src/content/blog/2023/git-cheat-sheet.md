@@ -7,7 +7,7 @@ tags: ['Cheat Sheets']
 Git is a free, open-source distributed version control system designed to track changes in source code during software development.
 
 ![git](./git-cheat-sheet/Git-Logo-2Color.svg)
-<!--more-->
+
 ### Setup
 
 ```bash
@@ -27,7 +27,7 @@ git push --set-upstream origin main # First push of commits
 ```bash
 git clone git@git.vs56.net:christian/NAME.git
 ```
-
+<!--more-->
 # Working Solo with One Branch
 
 ```bash
@@ -47,6 +47,28 @@ git branch # Show branches
 git branch new-branch # Create branch
 git branch -m OLD_NAME NEW_NAME # Rename branch
 git checkout -b NAME # Create and switch branch
+```
+
+# LFS
+
+```bash
+git lfs install
+git lfs track "*.psd" "*.zip" # Track filetypes
+git lfs track "path/to/dir/**" # Track directory
+git lfs track "path/to/file.bin" # Track specific file
+git add .gitattributes
+```
+
+```bash
+# Migrate files already committed
+git lfs migrate import --include="*.psd,*.zip" --everything
+git lfs migrate import --include="path/to/dir/**" --everything
+git lfs migrate import --include="path/to/file.bin" --everything
+git push --force-with-lease
+```
+
+```bash
+git lfs ls-files # Status
 ```
 
 # Handcarry old Git to Forgejo
