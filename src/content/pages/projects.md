@@ -17,9 +17,8 @@ description: 'Engineering and DIY projects, music, and life experiments.'
 
 The other big love of my life
 
-- Music for Piano (FIXME: `https://blog.chschmid.com/?page_id=1203`)
+- [Music for Piano](/projects/music-for-piano/)
 - [Music for Brass Instruments](/projects/music-for-brass-instruments/)
-- The Black & White Book 25 (FIXME: `https://blog.chschmid.com/?page_id=2938`)
 
 ## Life
 

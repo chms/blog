@@ -3,7 +3,8 @@ title: 'About Me'
 description: 'I am a tech enthusiast from Austria who loves engineering, music and travel.'
 ---
 
-I am a tech enthusiast from Austria who loves engineering, music and travel.
+I am a tech enthusiast based in Linz, Austria who loves engineering, music and travel.
+
 ### Get in touch
 
 E-mail works for anything. Signal is good for quicker or more private messages.
