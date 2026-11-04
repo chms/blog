@@ -76,7 +76,7 @@ git lfs ls-files # Status
 If you have a clone of the repo on the computer already:
 
 ```bash
-git remote set-url me "git@git.vs56.net:/mnt/Vault/oldgit/NAME.git"
+git remote set-url me "git@nas.vs56.net:/mnt/Vault/oldgit/NAME.git"
 git pull me
 git remote remove me
 git branch -m master main
@@ -87,10 +87,10 @@ git push --set-upstream origin main
 If you want to carry it over
 
 ```bash
-git clone "git@me.vs56.net:/mnt/Vault/oldgit/2019_09_18_Oma_Briefe.git"
+git clone "git@nas.vs56.net:/mnt/Vault/oldgit/NAME.git"
 git remote remove origin
 git branch -m master main
-git remote add "origin" ssh://git@home.vs56.net/christian/Omas-Briefe.git
+git remote add origin git@git.vs56.net:christian/NAME.git
 git push --set-upstream origin main
 ```
 
