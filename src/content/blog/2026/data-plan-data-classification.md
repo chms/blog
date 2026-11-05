@@ -11,6 +11,8 @@ Before we talk about how to store and back up data, we need to talk about what d
 
 Who may see the data is a third question, but it mostly follows from the first: the more sensitive the data, the fewer people should see it.
 
+:mdi-shield-lock=12:
+
 Combining these, we get five tiers:
 
 - **T1: Secret** – Leaking it would hurt us badly. Passwords, recovery codes, keys, ID documents, medical records. Some of it can be replaced with effort (a passport can be reissued); some of it can't (a lost recovery code may lock us out for good).
