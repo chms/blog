@@ -234,6 +234,22 @@ const Heading = href ? 'h2' : 'h1';
 		text-align: center;
 		pointer-events: none;
 	}
+	/* Inline icons (`:mdi-nas:`) take the color and size of the text around them. */
+	.body :global(svg.icon) {
+		width: 1.2em;
+		height: 1.2em;
+		vertical-align: -0.2em;
+		fill: currentColor;
+	}
+	/* An icon on a line of its own is larger and centered. */
+	.body :global(p:has(> svg.icon:only-child)) {
+		text-align: center;
+	}
+	.body :global(p > svg.icon:only-child) {
+		width: 3.5em;
+		height: 3.5em;
+		vertical-align: top;
+	}
 	.body :global(.more-marker) {
 		display: none;
 	}

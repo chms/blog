@@ -3,6 +3,7 @@ export function plainExcerpt(markdown: string, max = 160): string {
 	const text = markdown
 		.replace(/<!--[\s\S]*?-->/g, ' ')
 		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/:[a-z][a-z0-9]*(?:-[a-z0-9]+)+(?:=\d+(?:\.\d+)?(?:em|rem|px)?)?:/g, ' ')
 		.replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
 		.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
 		.replace(/<[^>]+>/g, ' ')
