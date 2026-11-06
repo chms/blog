@@ -6,13 +6,14 @@ tags: ['DIY', 'Technology']
 
 So where do we actually store our data, and how do we interact with it?
 
-:mdi-nas=12:
 ### Where Do We Store Our Data?
 
 There are two main containers that hold the bits and bytes.
 
 - **Network Attached Storage (NAS)**  
 Every family should have one. I built the hardware myself around a 20-core Intel CPU with ample RAM, plus HDD storage and SSDs for caching. It runs Proxmox with a large TrueNAS virtual machine, where all data lives in encrypted ZFS datasets.
+
+:mdi-nas=12:
 
 - **Proton**  
 As soon as you want reliable email, there's essentially no way around a hosted provider, and most of them bundle cloud storage. You could choose a big tech provider like Google and pay with your data. We decided to go with a Proton family plan.
