@@ -28,13 +28,10 @@ All services below run as apps in TrueNAS, with per-user accounts protected by p
 
 - **Network drives**  
 Samba, a timeless classic. Typically mapped to drive letters on Windows machines, with both private per-user directories and shared drives (e.g., media).
-
 - **Nextcloud**  
 A modern open-source workspace platform. We use it to sync contacts, calendars and files.
-
 - **Git**  
 For projects that evolve over time, where version control is central, there's a Forgejo server.
-
 - **Plex**  
 For when media consumption and ease of use, e.g., via an Apple TV, are front and center.
 
@@ -44,7 +41,6 @@ Our Proton family plan offers plenty of shared storage for both email and files.
 
 - **Proton Mail**  
 An encrypted email service with a focus on privacy.
-
 - **Proton Drive**  
 For when access over the internet is essential (and for backups, but more on that in another post).
 
@@ -52,12 +48,8 @@ For when access over the internet is essential (and for backups, but more on tha
 
 Both data stores (NAS and Proton) and the services on top of them (network drives, Nextcloud, Git and Proton Drive) can hold data of every tier defined in our [data classification scheme](/blog/data-plan-data-classification), with the following additional guidance:
 
-- **T1:** We always keep these in KeePass databases, passwords and sensitive documents alike. Only the encrypted database files are moved around, so they can be stored on any of the systems above.
-
-- **T2:** Each family member has an account on Proton Drive, Nextcloud, Forgejo and the NAS, with dedicated private folders or repositories.
-
-- **T3:** We also maintain shared folders in all of these systems. When sharing files with people outside the family, we typically use Proton Drive, since it's the only storage they can reach.
-
-- **T4:** Replaceable data, like our digitized media collection, lives only on the NAS, served via Samba and Plex. It doesn't need to be available on the go, and there's no point in spending cloud storage on files we could simply rip again.
-
-- **T5:** Public data also lives beyond the NAS and Proton, for example public repositories on GitHub and this blog, served via Cloudflare. Still, we keep the source on the NAS, since the published copy may be the only one otherwise.
+- **T1: Secret:** We always keep these in KeePass databases, passwords and sensitive documents alike. Only the encrypted database files are moved around, so they can be stored on any of the systems above.
+- **T2: Private:** Each family member has an account on Proton Drive, Nextcloud, Forgejo and the NAS, with dedicated private folders or repositories.
+- **T3: Shared:** We also maintain shared folders in all of these systems. When sharing files with people outside the family, we typically use Proton Drive, since it's the only storage they can reach.
+- **T4: Replaceable:** Replaceable data, like our digitized media collection, lives only on the NAS, served via Samba and Plex. It doesn't need to be available on the go, and there's no point in spending cloud storage on files we could simply rip again.
+- **T5: Public** Public data also lives beyond the NAS and Proton, for example public repositories on GitHub and this blog. Still, we keep the source on the NAS, since the published copy may be the only one otherwise.
